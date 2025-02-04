@@ -19,4 +19,4 @@ dependencies_inherit_configuration = true
 command = "cargo build --manifest-path frontend/Cargo.toml --target wasm32-wasip1 --release"
 
 [component.frontend.dependencies]
-"component:content-moderator/moderator" = { version = "^0.1.0", registry = "fermyon.com", package = "fermyon-experimental:content-moderator" }
+"component:content-moderator/moderator" = { path = "target/wasm32-wasip1/release/content_moderator.wasm" }
