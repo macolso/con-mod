@@ -1,0 +1,22 @@
+spin_manifest_version = 2
+
+[application]
+name = "conmod-demo"
+version = "0.1.0"
+description = "An example frontend that uses the content moderation component"
+
+[[trigger.http]]
+route = "/..."
+component = "frontend"
+
+[component.frontend]
+source = "target/wasm32-wasip1/release/frontend.wasm"
+allowed_outbound_hosts = [
+     # TODO
+]
+dependencies_inherit_configuration = true
+[component.frontend.build]
+command = "cargo build --manifest-path frontend/Cargo.toml --target wasm32-wasip1 --release"
+
+[component.frontend.dependencies]
+"component:content-moderator/moderator" = { version = "^0.1.0", registry = "fermyon.com", package = "fermyon-experimental:content-moderator" }

@@ -1,0 +1,9 @@
+package component:content-moderator;
+
+interface moderator {
+    moderate: func(url: string) -> result<string, string>;
+}
+
+world content-moderator {
+    export moderator;
+}
