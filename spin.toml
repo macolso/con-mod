@@ -11,9 +11,7 @@ component = "frontend"
 
 [component.frontend]
 source = "target/wasm32-wasip1/release/frontend.wasm"
-allowed_outbound_hosts = [
-     # TODO
-]
+allowed_outbound_hosts = ["*://*:*"]
 dependencies_inherit_configuration = true
 [component.frontend.build]
 command = "cargo build --manifest-path frontend/Cargo.toml --target wasm32-wasip1 --release"
