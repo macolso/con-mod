@@ -1,6 +1,6 @@
 [package]
-name = "frontend"
-description = "An example frontend that uses the content moderation component"
+name = "conmod-api"
+description = "An example API that uses the content moderation component"
 version = "0.1.0"
 edition = "2021"
 

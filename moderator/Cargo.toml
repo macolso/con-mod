@@ -5,7 +5,9 @@ edition = "2021"
 
 [dependencies]
 anyhow = "1"
+html2text = "0.13.6"
 wit-bindgen-rt = { version = "0.27.0", features = ["bitflags"] }
+serde_json = "1"
 spin-sdk = "3.0.1"
 spin-executor = "3.0.1"
 

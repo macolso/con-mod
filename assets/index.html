@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Moderation Results</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Content Moderation Checker</h2>
+        <div class="input-container">
+            <input type="text" id="urlInput" placeholder="Enter website URL...">
+            <img style="width:40px;height: 40px; "src="/maraca.png" onclick="checkModeration"></img>
+        </div>
+        <div id="status" class="status"></div>
+        <div class="categories" id="categories"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

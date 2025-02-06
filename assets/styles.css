@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}
+.status {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+.flagged {
+    background-color: #ffcccc;
+    color: #a00000;
+}
+.not-flagged {
+    background-color: #ccffcc;
+    color: #006600;
+}
+.categories {
+    text-align: left;
+    margin-top: 20px;
+}
+.category {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+.flagged-category {
+    color: #a00000;
+    font-weight: bold;
+}
+.input-container {
+    margin-bottom: 20px;
+}
+input {
+    padding: 10px;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+button {
+    padding: 10px 15px;
+    margin-top: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
