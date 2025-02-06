@@ -19,10 +19,18 @@ impl Guest for Component {
 
 bindings::export!(Component with_types_in bindings);
 
-async fn moderate(url: String) -> anyhow::Result<String> {
-    let document = fetch_content(url).await?;
-
-    let moderate_request_body = json!({"input": document}).to_string();
+async fn moderate(image_url: String) -> anyhow::Result<String> {
+    let moderate_request_body = json!({
+        "model": "omni-moderation-latest",
+        "input": [
+            {
+                "type": "image_url",
+                "image_url": {
+                    "url": image_url
+                }
+            }
+        ]
+    }).to_string();
 
     let token = spin_sdk::variables::get("token").context("getting token variable")?;
 
@@ -34,19 +42,4 @@ async fn moderate(url: String) -> anyhow::Result<String> {
     let response: Response = spin_sdk::http::send(moderate_request).await.context("making moderation request")?;
 
     Ok(String::from_utf8(response.body().to_vec())?)
-}
-
-async fn fetch_content(url: String) -> anyhow::Result<String> {
-    let content: Response = spin_sdk::http::send(Request::get(url)).await.context("fetching content")?;
-
-    println!("Content fetch status: {}", content.status());
-
-    if *content.status() != 200 {
-        return Err(anyhow::anyhow!("failed to fetch content, got {}", content.status()));
-    }
-
-    // convert the html response to text format
-    let document = html2text::from_read(&mut content.body(), 20).context("converting html to text")?;
-
-    Ok(document)
 }
